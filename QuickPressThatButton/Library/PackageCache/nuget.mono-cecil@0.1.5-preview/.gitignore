@@ -1,0 +1,17 @@
+/.gitlab-ci.yml
+/CHANGELOG.md
+/CHANGELOG.md.meta
+/License.md
+/License.md.meta
+/Mono.Cecil.Mdb.dll
+/Mono.Cecil.Mdb.dll.meta
+/Mono.Cecil.Pdb.dll
+/Mono.Cecil.Pdb.dll.meta
+/Mono.Cecil.Rocks.dll
+/Mono.Cecil.Rocks.dll.meta
+/Mono.Cecil.dll
+/Mono.Cecil.dll.meta
+/README.md
+/README.md.meta
+/package.json
+/package.json.meta
