@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrusherScript : MonoBehaviour {
+public class CrusherScript : MonoBehaviour
+{
 
     public GameObject Crusher;
     public GameObject ButtonPressed;
@@ -12,24 +13,39 @@ public class CrusherScript : MonoBehaviour {
     Vector2 startPosition;
     public GameObject target;
     public float timeToReachTarget;
-    PickItem correct;
+    public PickItem correct;
+    public bool delayOn;
 
-    // Use this for initialization
-    void Start ()
+ 
+    void Start()
     {
         startPosition = Crusher.transform.position;
-        
+        delayOn = false; 
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-       
 
-        t += Time.deltaTime / timeToReachTarget;
-        transform.position = Vector2.Lerp(startPosition, target.transform.position, t);
+    void delay()
+    {
+        if (correct.RightAnswer == true && delayOn == false)
+        {
+            timeToReachTarget += .1f;
+        }
+        else
+        {
+          
+        }
       
     }
+  
+ 
+
+    void Update()
+    {
+        delay();
+       t += Time.deltaTime / timeToReachTarget;
+       transform.position = Vector2.Lerp(startPosition, target.transform.position, t);
+        delayOn = false;
+    }
+
 
     
 }

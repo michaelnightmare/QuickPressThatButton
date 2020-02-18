@@ -14,7 +14,7 @@ public class PickItem : MonoBehaviour
     public Button buttonRight;
     public AudioSource correct;
     public AudioSource wrong;
-    public bool InputChoiceTrueFalse;
+    public bool RightAnswer;
 
     void Start()
     {
@@ -32,43 +32,26 @@ public class PickItem : MonoBehaviour
     {
         if(activeButton == current)
         {
+            RightAnswer = true;
             itemsToPickFrom[activeButton].SetActive(false);
             Pick();
             Score.scoreValue += 100;
-            InputChoiceTrueFalse = true;
+            RightAnswer = true;
             correct.Play();
         }
         else 
         {
-       
+            Debug.Log("false");
+            RightAnswer = false;
         }
-        
+    
         
 
     }
 
     void Update()
     {
-        if(buttonLeft)
-        {
-            Check(0);
-        }
-        else if (buttonLeftUp)
-        {
-            Check(1);
-        }
-        else if (buttonUp)
-        {
-            Check(2);
-        }
-        else if (buttonRightUp)
-        {
-            Check(3);
-        }
-        else if (buttonRight)
-        {
-            Check(4);
-        }
+      
 
 
     }
