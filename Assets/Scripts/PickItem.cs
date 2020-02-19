@@ -15,6 +15,7 @@ public class PickItem : MonoBehaviour
     public AudioSource correct;
     public AudioSource wrong;
     public bool RightAnswer;
+    public CrusherScript crusher;
 
     void Start()
     {
@@ -32,17 +33,17 @@ public class PickItem : MonoBehaviour
     {
         if(activeButton == current)
         {
-            RightAnswer = true;
+            
             itemsToPickFrom[activeButton].SetActive(false);
             Pick();
             Score.scoreValue += 100;
-            RightAnswer = true;
+            crusher.bump();
             correct.Play();
         }
-        else 
-        {
-            Debug.Log("false");
-            RightAnswer = false;
+        else
+        { 
+            wrong.Play();
+   
         }
     
         
