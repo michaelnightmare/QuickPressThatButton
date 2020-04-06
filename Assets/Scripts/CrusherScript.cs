@@ -15,6 +15,7 @@ public class CrusherScript : MonoBehaviour
     public float timeToReachTarget;
     public float speed;
     public float bumpAmount;
+    public float negativeBumpAmount;
 
  
     void Start()
@@ -27,9 +28,16 @@ public class CrusherScript : MonoBehaviour
         transform.Translate(Vector3.up* bumpAmount);
     }
 
+    public void negativeBump()
+    {
+        transform.Translate(Vector3.down * negativeBumpAmount);
+    }
+
+
     void Update()
     {
         transform.Translate(Vector3.down * Time.deltaTime * speed);
+        
        //t += Time.deltaTime / timeToReachTarget;
        //transform.position = Vector2.Lerp(startPosition, target.transform.position, t);
 

@@ -16,6 +16,9 @@ public class PickItem : MonoBehaviour
     public AudioSource wrong;
     public bool RightAnswer;
     public CrusherScript crusher;
+    public GameObject redFlash;
+    public bool redFlashActive;
+    
 
     void Start()
     {
@@ -43,6 +46,9 @@ public class PickItem : MonoBehaviour
         else
         { 
             wrong.Play();
+            redFlash.SetActive(true);
+            crusher.negativeBump();
+            StartCoroutine(redFlashDeactivate());
    
         }
     
@@ -50,9 +56,16 @@ public class PickItem : MonoBehaviour
 
     }
 
+    IEnumerator redFlashDeactivate()
+    {
+        yield return new WaitForSeconds(.2f);
+        redFlash.SetActive(false);
+
+    }
+
     void Update()
     {
-      
+
 
 
     }
