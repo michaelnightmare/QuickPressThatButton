@@ -16,6 +16,8 @@ public class CrusherScript : MonoBehaviour
     public float speed;
     public float bumpAmount;
     public float negativeBumpAmount;
+    public Vector2 maxPosition;
+    public Vector2 minPosition;
 
  
     void Start()
@@ -25,7 +27,14 @@ public class CrusherScript : MonoBehaviour
     }
     public void bump()
     {
-        transform.Translate(Vector3.up* bumpAmount);
+        if (Crusher.transform.position.y > startPosition.y)
+        {
+            Debug.Log("Top hit");
+        }
+        else
+        {
+            transform.Translate(Vector3.up * bumpAmount);
+        }
     }
 
     public void negativeBump()
@@ -36,11 +45,14 @@ public class CrusherScript : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.down * Time.deltaTime * speed);
-        
-       //t += Time.deltaTime / timeToReachTarget;
-       //transform.position = Vector2.Lerp(startPosition, target.transform.position, t);
-
+        if (Crusher.transform.position.y >= minPosition.y)
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * speed);
+        }
+        else
+        {
+            Debug.Log("Bottom hit");
+        }
     }
 
 
